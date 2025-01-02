@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block title %}
-    This Post Title
+    {{post.title}}
 {% endblock %}
 
 {% block css_files %}
@@ -13,43 +13,19 @@
 
 {% block content %}
     <section id="summary">
-        <h2>Post Title</h2>
+        <h2>{{post.title}}</h2>
         <article>
-            <img src="{% static 'blog/images/mountains.jpg' %}" alt="Post Title">
+            <img src="{% static 'blog/images/'|add:post.image %}" alt="Post Title">
             <address>
-                by Joshwa Sanz
+                by {{post.author}}
             </address>
             <div>
-                Last updated on <time>July 10th</time>
+                Last updated on <time>{{post.date|date:"d M Y" }}</time>
             </div>
         </article>
     </section>
 
     <main>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Eius ab cum molestiae! Ipsam, commodi ducimus nobis quisqu
-            am obcaecati laborum qui neque libero expedita maiores, ex
-            ercitationem dicta ad soluta tempora atque!
-        </p>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Eius ab cum molestiae! Ipsam, commodi ducimus nobis quisqu
-            am obcaecati laborum qui neque libero expedita maiores, ex
-            ercitationem dicta ad soluta tempora atque!
-        </p>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Eius ab cum molestiae! Ipsam, commodi ducimus nobis quisqu
-            am obcaecati laborum qui neque libero expedita maiores, ex
-            ercitationem dicta ad soluta tempora atque!
-        </p>
-        <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-            Eius ab cum molestiae! Ipsam, commodi ducimus nobis quisqu
-            am obcaecati laborum qui neque libero expedita maiores, ex
-            ercitationem dicta ad soluta tempora atque!
-        </p>
-        
+       {{post.content|linebreaks}}       
     </main>
 {% endblock %}

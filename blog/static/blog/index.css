@@ -8,6 +8,7 @@
 #welcome header {
   display: flex;
   align-items: flex-start;
+  /* justify-content: space-evenly; */
   margin: 3rem auto;
 }
 
